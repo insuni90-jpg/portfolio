@@ -705,6 +705,47 @@ a.copy{text-decoration:none;display:inline-flex;align-items:center}
 .idcard .who{gap:22px;align-items:flex-end}
 .idcard .who h3{font-size:clamp(1.5rem,2.2vw,1.9rem)}
 @media (max-width:420px){.avatar{width:104px;height:126px}.idcard .who{gap:16px}}
+/* About: left column fills card height */
+@media (min-width:861px){
+  .about{align-items:stretch}
+  .about>div:first-child{display:flex;flex-direction:column}
+  .about ul.points{flex:1;align-content:space-between;margin-top:34px}
+}
+
+/* hero CTA */
+.hcta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;animation:fade .9s .6s both}
+.hbtn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;font:600 var(--t-sm)/1 var(--f-body);text-decoration:none;transition:transform .25s var(--ease),background .25s,border-color .25s}
+.hbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hbtn.pri{background:#EEF2F8;color:#16233A}
+.hbtn.pri:hover{transform:translateY(-2px);background:#fff}
+.hbtn.sec{border:1px solid rgba(255,255,255,.25);color:var(--on-navy)}
+.hbtn.sec:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+/* tab KPI preview */
+.tab .tt-h{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px}
+.tkpi{font-style:normal;font:600 .72rem/1 var(--f-body);color:var(--c);background:color-mix(in srgb,var(--c) 10%,transparent);padding:5px 9px;border-radius:999px;white-space:nowrap}
+/* detail end nav */
+.dnav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px clamp(28px,4.5vw,56px) 26px;border-top:1px solid var(--rule);background:var(--soft)}
+.dnav button{font:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:10px;border-radius:12px;border:1px solid var(--rule);background:var(--card);color:var(--ink);transition:border-color .25s,transform .25s var(--ease)}
+.dnav svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.dn-close{height:44px;padding:0 16px;font-size:var(--t-sm);font-weight:500;color:var(--ink-2)}
+.dn-close:hover{border-color:var(--ink-2)}
+.dn-next{min-height:56px;padding:8px 16px 8px 20px;text-align:left;font-weight:600;font-size:var(--t-sm)}
+.dn-next small{display:block;font:500 .66rem/1.4 var(--f-mono);letter-spacing:.12em;color:var(--mute);text-transform:uppercase;margin-bottom:2px}
+.dn-next svg{color:var(--nc)}
+.dn-next:hover{border-color:var(--nc);transform:translateX(2px)}
+@media (max-width:520px){.dnav{flex-direction:column-reverse;align-items:stretch}.dnav button{justify-content:space-between}.dnav .dn-close{justify-content:center}}
+/* back to top */
+.totop{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:80;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#EEF2F8;box-shadow:0 6px 18px rgba(10,16,26,.25);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .35s,transform .35s var(--ease)}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+:root[data-theme="dark"] .totop{background:#26344F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .totop{background:#26344F}}
+/* AI section band */
+section.sec#ai{background:var(--soft);padding-bottom:var(--gap-sec);margin-top:var(--gap-sec);padding-top:var(--gap-sec)}
+section.sec#ai+section.sec{padding-top:var(--gap-sec)}
+#skills{padding-bottom:0}
+/* reduced motion: brand logos in one wrapped row */
+@media (prefers-reduced-motion:reduce){.btrack{display:flex!important;flex-wrap:wrap;gap:14px 40px;width:auto!important}.btrack li{width:auto!important;margin:0!important;justify-content:flex-start!important}.btrack li[aria-hidden]{display:none}}
 </style>
 </head>
 <body>
@@ -737,6 +778,7 @@ a.copy{text-decoration:none;display:inline-flex;align-items:center}
         <span class="ln"><span>이인수입니다.</span></span>
       </h1>
       <p class="tag">Designing services that make everyday life better — and growing together with the company through every service I build.</p>
+      <div class="hcta"><a class="hbtn pri" href="#projects">프로젝트 보기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a><a class="hbtn sec" href="https://drive.google.com/file/d/1etYKmDnJ0HirBSA-TZuz_CmSV8SFsCIj/view?usp=sharing" target="_blank" rel="noopener">포트폴리오 PDF<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg></a></div>
     </div>
     <div class="stats">
       <div class="stat"><b class="num"><span data-count="10">10</span>+<small>Years</small></b><span class="lab">총 경력</span></div>
@@ -761,11 +803,11 @@ a.copy{text-decoration:none;display:inline-flex;align-items:center}
         <div>
           <h2 class="lead rv">정책 설계부터 화면 기획, 운영 체계까지 —<br><strong>서비스가 실제로 돌아가는 구조</strong>를 만드는 일에 강합니다.</h2>
           <ul class="points stg">
-            <li class="rv">교육, 구인구직, 커머스 · 결제, 가상자산 · 증권 등 다양한 도메인의 서비스 기획</li>
-            <li class="rv">결제(PG · 간편결제), 본인인증, ISMS-P, 법령 준수 등 정책 · 리스크 기반 기획에 강점</li>
-            <li class="rv">AI를 활용해 리서치 · PRD 작성 · 화면설계 · 프로토타입 검증까지 기획 전 과정의 속도와 완성도 향상</li>
-            <li class="rv">개발 · 디자인 · QA 및 B2B 제휴사(IT, 언론사, 공기업, PG사 등)와 원활한 협업</li>
-            <li class="rv">서비스기획 외 마케팅 · 운영 · 전략기획 직무 경험</li>
+            <li class="rv">B2C · B2B 플랫폼의 Web / App / Admin 기획부터 오픈 · 운영까지 리딩합니다.</li>
+            <li class="rv">교육, 구인구직, O2O, 가상자산 · 증권 등 다양한 도메인의 서비스를 기획했습니다.</li>
+            <li class="rv">결제(PG · 간편결제), 본인인증, ISMS-P, 법령 준수 등 정책 · 리스크 기반 기획에 강점이 있습니다.</li>
+            <li class="rv">AI를 활용해 리서치 · PRD 작성 · 화면설계 · 프로토타입 검증까지 기획 전 과정의 속도와 완성도를 높입니다.</li>
+            <li class="rv">개발 · 디자인 · QA 및 B2B 제휴사(IT, 언론사, 공기업 등)와 원활하게 협업하며 결과물을 만들었습니다.</li>
           </ul>
         </div>
         <aside class="idcard rv" aria-label="프로필과 연락처">
@@ -892,6 +934,7 @@ a.copy{text-decoration:none;display:inline-flex;align-items:center}
   </section>
 </main>
 
+<a class="totop" href="#top" aria-label="맨 위로"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
 <footer class="contact compact" id="contact">
   <div class="wrap">
     <div class="cbar rv">
@@ -911,7 +954,7 @@ document.documentElement.lang='ko';
 const G = {"9": {"sx": [], "sy": [], "ar": 2.1653, "it": [["g3/s09_1.webp", "PRD 수립", 743, 590, 0.0, 0.815, 27.605], ["g3/s09_2.webp", "플랫폼 리뷰", 736, 590, 36.794, 0.815, 27.322], ["g3/s09_3.webp", "프로젝트 관리", 784, 590, 70.859, 0.815, 29.141], ["g3/s09_4.webp", "FO 화면 기획", 723, 598, 0.622, 51.878, 26.878], ["g3/s09_5.webp", "BO 화면 기획", 736, 598, 36.794, 51.878, 27.322], ["g3/s09_6.webp", "프로토타입 구현", 784, 624, 70.859, 49.811, 29.141]], "lb": [["FO 화면 기획", 5.22, 52.74], ["PRD 수립", 5.22, 3.04], ["플랫폼 리뷰", 41.8, 3.04], ["프로젝트 관리", 75.91, 3.04], ["BO 화면 기획", 41.8, 52.74], ["프로토타입 구현", 75.91, 51.51]]}, "11": {"sx": [], "sy": [], "ar": 2.1636, "it": [["g3/s11_1.webp", "방향성 수립", 750, 598, 0.466, 0.671, 27.896], ["g3/s11_2.webp", "정책 수립", 720, 590, 37.261, 0.835, 26.775], ["g3/s11_3.webp", "약관 수립", 723, 590, 71.292, 1.078, 26.876], ["g3/s11_4.webp", "PC 화면 기획", 726, 598, 0.552, 51.873, 27.003], ["g3/s11_5.webp", "TAB 화면 기획", 704, 631, 37.914, 49.222, 26.177], ["g3/s11_6.webp", "MO 화면 기획", 768, 612, 71.426, 50.811, 28.574]], "lb": [["PC 화면 기획", 5.15, 52.73], ["TAB 화면 기획", 41.76, 52.73], ["MO 화면 기획", 75.89, 51.5], ["방향성 수립", 5.15, 3.04], ["정책 수립", 41.76, 3.04], ["약관 수립", 75.89, 3.04]]}, "13": {"sx": [62.43], "sy": [48.38], "ar": 2.7795, "it": [["g3/s13_1.webp", "정책 수립", 834, 511, 0.0, 0.517, 29.312], ["g3/s13_2.webp", "데이터 API 기획", 834, 511, 29.268, 0.559, 29.312], ["g3/s13_3.webp", "ASP 모바일 화면", 593, 1779, 66.016, 0.0, 12.126], ["g3/s13_4.webp", "ASP 모바일 화면", 584, 1779, 76.99, 0.0, 12.128], ["g3/s13_5.webp", "ASP 모바일 화면", 590, 1779, 87.872, 0.0, 12.128], ["g3/s13_7.webp", "종목상세 화면 기획", 834, 506, 0.0, 50.424, 29.312], ["g3/s13_6.webp", "시장동향 화면 기획", 834, 509, 29.268, 50.286, 29.312]], "lb": [["정책 수립", 25.95, 13.72], ["종목상세 화면 기획", 25.95, 84.51], ["시장동향 화면 기획", 55.38, 84.51], ["데이터 API 기획", 55.35, 13.72]]}, "14": {"sx": [60.94], "sy": [48.43], "ar": 2.849, "it": [["g3/s14_1.webp", "Flow Chart", 834, 515, 0.0, 0.302, 28.624], ["g3/s14_2.webp", "서버 정책 수립", 835, 515, 29.054, 0.302, 28.624], ["g3/s14_3.webp", "관리자 시스템 화면", 1801, 1779, 64.458, 0.0, 35.542], ["g3/s14_4.webp", "운영관리 화면 기획", 834, 508, 0.0, 50.335, 28.624], ["g3/s14_5.webp", "고객관리 화면 기획", 835, 508, 29.054, 50.335, 28.624]], "lb": [["운영관리 화면 기획", 25.81, 84.59], ["고객관리 화면 기획", 54.56, 84.59], ["서버 정책 수립", 54.53, 13.73], ["Flow Chart", 25.81, 13.73]]}, "15": {"sx": [], "sy": [], "ar": 2.9245, "it": [["g3/s15_1.webp", "서비스 소개서", 1390, 975, 0.0, 0.0, 48.771], ["g3/s15_2.webp", "데이터 검증", 1420, 959, 50.215, 0.0, 49.785]], "lb": [["서비스 소개서", 4.89, 87.5], ["데이터 검증", 54.52, 84.37]]}, "17": {"sx": [62.03], "sy": [48.2], "ar": 2.8086, "it": [["g3/s17_1.webp", "정책 수립", 834, 506, 0.0, 0.0, 29.165], ["g3/s17_2.webp", "Front 화면기획", 834, 506, 28.869, 0.0, 29.165], ["g3/s17_3.webp", "기업인증 모바일 화면", 1711, 1771, 65.604, 0.0, 34.396], ["g3/s17_4.webp", "Flow Chart", 834, 506, 0.117, 50.254, 29.165], ["g3/s17_5.webp", "Admin 기획", 834, 506, 28.869, 50.254, 29.165]], "lb": [["정책 수립", 25.4, 13.35], ["Front 화면기획", 54.66, 14.28], ["Flow Chart", 25.4, 84.52], ["Admin 기획", 54.69, 84.52]]}, "18": {"sx": [], "sy": [], "ar": 2.486, "it": [["g3/s18_1.webp", "준법사항 리스트", 834, 506, 0.0, 0.0, 32.95], ["g3/s18_2.webp", "근로기준법", 834, 506, 32.615, 0.0, 32.95], ["g3/s18_3.webp", "위치정보법", 834, 506, 66.404, 0.0, 32.95], ["g3/s18_4.webp", "전자상거래법", 834, 506, 0.132, 50.254, 32.95], ["g3/s18_5.webp", "직업안정법", 834, 506, 32.615, 50.254, 32.95], ["g3/s18_6.webp", "채용절차법", 834, 506, 66.404, 50.254, 32.95]], "lb": [["준법사항 리스트", 28.7, 13.35], ["근로기준법", 61.75, 14.28], ["전자상거래법", 28.7, 84.52], ["직업안정법", 61.79, 84.52], ["위치정보법", 95.54, 14.28], ["채용절차법", 95.57, 84.52]]}, "19": {"sx": [66.81], "sy": [48.45], "ar": 2.595, "it": [["g3/s19_1.webp", "정책 수립", 834, 506, 0.0, 0.486, 31.411], ["g3/s19_2.webp", "Front 화면기획", 834, 506, 31.093, 0.486, 31.411], ["g3/s19_3.webp", "ISMS-P 인증서", 1279, 1780, 72.289, 0.0, 27.711], ["g3/s19_4.webp", "약관 개정", 834, 506, 0.126, 50.496, 31.411], ["g3/s19_5.webp", "Admin 기획", 834, 506, 31.093, 50.496, 31.411]], "lb": [["정책 수립", 27.36, 13.77], ["Front 화면기획", 58.87, 14.7], ["약관 개정", 27.36, 84.6], ["Admin 기획", 58.9, 84.6]]}, "20": {"sx": [61.16], "sy": [48.43], "ar": 2.819, "it": [["g3/s20_1.webp", "가맹점 계약", 834, 523, 0.0, 0.0, 28.929], ["g3/s20_2.webp", "Front 화면기획", 834, 506, 28.264, 0.44, 28.929], ["g3/s20_3.webp", "결제수단 선택 화면", 1724, 1633, 65.613, 3.426, 34.387], ["g3/s20_4.webp", "정책 수립", 834, 506, 0.0, 50.391, 28.929], ["g3/s20_5.webp", "Admin 기획", 834, 506, 28.264, 50.473, 28.929]], "lb": [["가맹점 계약", 24.83, 13.73], ["Front 화면기획", 53.85, 14.66], ["정책 수립", 24.83, 84.59], ["Admin 기획", 53.87, 84.59]]}, "21": {"sx": [61.63], "sy": [48.2], "ar": 2.8269, "it": [["g3/s21_1.webp", "UI/UX 개선", 834, 506, 0.0, 0.0, 28.976], ["g3/s21_2.webp", "Front 화면기획", 834, 506, 28.682, 0.0, 28.976], ["g3/s21_3.webp", "브랜드 채용관 화면", 1735, 1593, 65.354, 5.376, 34.646], ["g3/s21_4.webp", "지표화 관리", 834, 506, 0.116, 50.254, 28.976], ["g3/s21_5.webp", "Admin 내재화", 834, 506, 28.682, 50.254, 28.976]], "lb": [["UI/UX 개선", 25.24, 13.35], ["Front 화면기획", 54.31, 14.28], ["지표화 관리", 25.24, 84.52], ["Admin 내재화", 54.33, 84.52]]}, "22": {"sx": [], "sy": [], "ar": 2.6976, "it": [["g3/s22_1.webp", "JIRA 업무진행리스트", 1450, 917, 0.0, 0.0, 49.865], ["g3/s22_2.webp", "JIRA 이슈 목록", 1480, 1078, 49.122, 0.0, 50.878]], "lb": []}, "24": {"sx": [61.2], "sy": [48.27], "ar": 2.8513, "it": [["g3/s24_1.webp", "일정 관리", 834, 506, 0.0, 0.0, 28.773], ["g3/s24_2.webp", "정책 수립", 834, 506, 28.481, 0.0, 28.773], ["g3/s24_3.webp", "타임커머스 상품 화면", 589, 1545, 64.438, 3.215, 11.675], ["g3/s24_4.webp", "타임커머스 상품 화면", 621, 1545, 76.138, 3.317, 12.517], ["g3/s24_5.webp", "타임커머스 상품 화면", 622, 1545, 87.475, 3.317, 12.525], ["g3/s24_6.webp", "전략 수립", 834, 504, 0.0, 50.333, 28.773], ["g3/s24_7.webp", "화면 기획", 834, 505, 28.481, 50.333, 28.773]], "lb": [["일정 관리", 25.06, 13.37], ["정책 수립", 53.93, 14.3], ["화면 기획", 53.95, 84.65], ["전략 수립", 25.06, 84.65]]}, "25": {"sx": [], "sy": [], "ar": 2.5331, "it": [["g3/s25_1.webp", "IR 제안서", 1330, 534, 0.0, 0.0, 48.159], ["g3/s25_2.webp", "B2B 사업제휴", 1328, 534, 51.931, 0.0, 48.069], ["g3/s25_3.webp", "G2B 사업제휴", 1328, 534, 0.09, 51.085, 48.069], ["g3/s25_4.webp", "협업툴 도입", 1328, 534, 51.877, 51.085, 48.069]], "lb": [["IR 제안서", 4.87, 31.81], ["B2B 사업제휴", 57.34, 32.07], ["G2B 사업제휴", 5.2, 86.05], ["협업툴 도입", 57.34, 86.56]]}, "26": {"sx": [64.22], "sy": [45.79], "ar": 3.5009, "it": [["g3/s26_1.webp", "온라인 프로모션", 541, 825, 0.515, 3.175, 17.683], ["g3/s26_2.webp", "온라인 프로모션 이벤트", 517, 825, 18.138, 3.175, 16.907], ["g3/s26_3.webp", "오프라인 프로모션", 778, 812, 35.881, 4.648, 25.445], ["g3/s26_4.webp", "프로모션 기간 앱 다운로드 추이", 1712, 1472, 67.843, 3.175, 32.157]], "lb": [["온라인 프로모션", 4.53, 4.32], ["오프라인 프로모션", 38.53, 4.32]]}, "28": {"sx": [53.76], "sy": [44.37], "ar": 2.8552, "it": [["g3/s28_1.webp", "로드맵 일정관리", 1404, 769, 0.0, 6.7, 49.346], ["g3/s28_2.webp", "리뉴얼 오픈 홍보물", 1061, 1734, 58.179, 0.0, 21.764], ["g3/s28_3.webp", "리뉴얼 오픈 홍보물", 1045, 1734, 78.631, 0.0, 21.369]], "lb": [["로드맵 일정관리", 44.71, 14.09]]}, "29": {"sx": [56.43], "sy": [25.88, 70.84], "ar": 2.8145, "it": [["g3/s29_1.webp", "스트리밍 기획", 692, 487, 0.0, 0.748, 24.921], ["g3/s29_2.webp", "채팅창 기획", 702, 487, 25.892, 0.748, 25.25], ["g3/s29_3.webp", "스트리밍 화면", 1282, 893, 62.611, 0.0, 26.523], ["g3/s29_4.webp", "스트리밍 화면", 495, 885, 89.775, 2.017, 10.225], ["g3/s29_5.webp", "VOD 기획", 690, 476, 0.151, 51.874, 24.811], ["g3/s29_6.webp", "방송채널 기획", 702, 476, 25.289, 51.874, 25.25], ["g3/s29_7.webp", "방송채널 화면", 1742, 827, 62.736, 51.874, 36.038]], "lb": [["스트리밍 기획", 21.89, 8.51], ["채팅창 기획", 47.21, 8.57], ["VOD 기획", 20.9, 61.27], ["방송채널 기획", 47.18, 61.27]]}, "30": {"sx": [49.04], "sy": [25.58, 67.75], "ar": 2.4013, "it": [["g3/s30_1.webp", "정보발송 기획", 1064, 519, 0.0, 0.74, 42.088], ["g3/s30_2.webp", "정보발송 어드민 화면", 1890, 917, 57.029, 0.0, 42.971], ["g3/s30_3.webp", "상품관리 기획", 1064, 447, 0.0, 53.1, 42.088], ["g3/s30_4.webp", "상품관리 어드민 화면", 1890, 859, 57.029, 53.1, 42.971]], "lb": [["정보발송 기획", 38.98, 11.96], ["상품관리 기획", 38.75, 64.27]]}, "31": {"sx": [], "sy": [], "ar": 3.2767, "it": [["g3/s31_1.webp", "애널리틱스 집행", 993, 863, 0.0, 1.553, 34.589], ["g3/s31_2.webp", "DB수집 분석", 744, 876, 36.767, 0.0, 25.886], ["g3/s31_3.webp", "프로모션 기획", 893, 876, 67.211, 0.0, 31.074]], "lb": [["애널리틱스 집행", 25.45, 32.77], ["DB수집 분석", 60.13, 26.71], ["프로모션 기획", 95.64, 18.6]]}};
 const gal = (n) => G[n];
 const P = [
- {id:'edu', no:'01', c:'var(--edu)', title:'입시 솔루션 플랫폼', sub:'논숲 · PMS', co:'UPLUS SYSTEM', period:'2025.10 – 재직중',
+ {id:'edu', hl:'재계약 100%', no:'01', c:'var(--edu)', title:'입시 솔루션 플랫폼', sub:'논숲 · PMS', co:'UPLUS SYSTEM', period:'2025.10 – 재직중',
   summary:['대학 입시 전형 운영(B2B)부터 수험생 논술 학습(B2C)까지 아우르는 입시 솔루션 플랫폼 2종 기획','논숲 : 대학별 논술 시험 응시부터 AI 채점 · 피드백까지 제공하는 수험생 대상 AI 모의논술 플랫폼','PMS : 입시 전형 감독관의 정보 · 서약서 · 출결을 PC · MO · TAB에서 통합 관리하는 감독관 관리 시스템'],
   vis:[['img/hero_nonsup.webp','논숲 서비스 화면 구성'],['img/hero_pms.webp','PMS PC · MO · TAB 화면 구성']],
   split:[
@@ -922,14 +965,14 @@ const P = [
   areas:[['논숲 · B2C',['FO : 회원가입, 포인트, 약관, 마이페이지, CS','BO : 회원, 이벤트, 구매내역, 상품 관리']],['PMS · B2B',['PC : 전형 관리자 시스템 기획','MO : 감독관 시스템 기획','TAB : 출결 운영자 시스템 기획']]],
   cases:[
    {k:'PROJECT 01 · 논숲 · B2C', t:'AI 모의논술 평가 플랫폼', b:'입시 논술 수험생 대상, 대학별 논술 시험을 응시부터 AI 채점 · 피드백까지 제공하는 B2C 학습 서비스 신규 구축', d:'회원 · 포인트 · 시험 · 약관 · CS 관리와 AI 평가 구조 등 FO · BO 서비스 생애주기 전반 기획', e:'PC 기반 MVP 서비스 오픈 및 서비스 운영',
-    flow:{dh:150, steps:[['img/n1_explore.webp','STEP 1','시험 탐색',['관심 대학 추천 · 인기 TOP&nbsp;12','필터 · 검색으로 대학별 논술 탐색','완두콩으로 시험 응시']],['img/n2_write.webp','STEP 2','답안 작성',['원고지형 응시창 · 형광펜 · 메모','남은 시간 · 답안 자동 저장','적정 글자수 초과 안내']],['img/n3_result.webp','STEP 3','AI 평가 결과',['기본 / 심층 2단계 평가','글쓰기 역량 점수 (내용 · 구성 · 표현)','대학 기준 점수 · 문제별 피드백']],['img/n4_report.webp','STEP 4','성장 리포트',['영역별 점수 · 목표 점수 설정','최근 점수 기록 추이','시험 채점 현황 관리']]]},
+    flow:{dh:150, steps:[['img/n1_explore.webp','STEP 1','시험 탐색',['관심 대학 추천 · 인기 TOP\u00A012','필터 · 검색으로 대학별 논술 탐색','완두콩으로 시험 응시']],['img/n2_write.webp','STEP 2','답안 작성',['원고지형 응시창 · 형광펜 · 메모','남은 시간 · 답안 자동 저장','적정 글자수 초과 안내']],['img/n3_result.webp','STEP 3','AI 평가 결과',['기본 / 심층 2단계 평가','글쓰기 역량 점수 (내용 · 구성 · 표현)','대학 기준 점수 · 문제별 피드백']],['img/n4_report.webp','STEP 4','성장 리포트',['영역별 점수 · 목표 점수 설정','최근 점수 기록 추이','시험 채점 현황 관리']]]},
     gal:gal('9')},
    {k:'PROJECT 02 · PMS · B2B', t:'감독관 관리 시스템 리뉴얼', sep:true, b:'전형에 참여하는 감독관의 정보 · 서약서 · 출결을 PC · MO · TAB에서 통합 관리할 시스템 필요', d:'테넌시 관리자 기반 기능 · 서버 통합, UI/UX 개선으로 사용성 향상, 본인인증 도입으로 개인정보 보호 강화', e:'기존 고객사 재계약 100%, 신규 고객사 75% 증가, 유지보수 관리 시간 단축',
     flow:{dh:170, steps:[['img/dev_pc.webp','PC · 학교 관리자','관리자 시스템',['전형 등록 및 서약서 연동','감독관 등록 (개별 · 엑셀 일괄)','서약서 · 문자 템플릿 작성','감독관 대상 문자 발송']],['img/dev_mo.webp','MO · 감독관','감독관 시스템',['문자 링크 접속 · 로그인','약관 동의 · 서약서 전자서명','출결 QR 발급 (10분 자동 갱신)']],['img/dev_tab.webp','TAB · 현장 운영자','출결 시스템',['전형 선택 · 운영자 로그인','감독관 QR 인식','출근 · 퇴근 등록 및 음성 안내']]],
       sync:'MO에서 제출한 서약서와 TAB에서 등록한 출결이 PC 관리자 시스템에 즉시 반영되어 현황 조회 · 수정 · 다운로드 가능'},
     gal:gal('11')}
   ]},
- {id:'dayfin', no:'02', c:'var(--dayfin)', title:'디지털 자산 데이터 플랫폼', sub:'데이핀', co:'BONANZA LAB', period:'2025.03 – 2025.09',
+ {id:'dayfin', hl:'KB Pay 입점', no:'02', c:'var(--dayfin)', title:'디지털 자산 데이터 플랫폼', sub:'데이핀', co:'BONANZA LAB', period:'2025.03 – 2025.09',
   summary:['국내 4대 거래소(업비트, 빗썸, 코인원, 코빗) 라이선스 체결을 통해 공신력 있는 데이터를 제공하는 가상자산 투자정보 솔루션','서비스기획 실무 : Admin, ASP 등 신규 서비스 오픈'],
   vis:[['img/hero_dayfin.webp','데이핀 디지털 자산 데이터 플랫폼']],
   kpis:[['KB Pay','입점 확정 · 제휴사 도입 (2025.09 기준)']],
@@ -939,7 +982,7 @@ const P = [
    {k:'Admin', t:'관리자 시스템 기획', b:'관리자 시스템 부재로 인해 Postman 및 개발팀 요청을 통한 수기 관리 발생', d:'관리자 시스템 도입을 통한 플랫폼 운영 자동화', e:'업무 효율성 및 플랫폼 관리 체계 향상', gal:gal('14')},
    {k:'전략 · 운영', t:'서비스 소개서 · 데이터 검증', list:['서비스 소개서 리뉴얼 → 신규 서비스 추가 및 기술 강점 최신화','데이터 적합성 검증 → 기존 제공되는 API 데이터 적합성 검증'], gal:gal('15')}
   ]},
- {id:'alba', no:'03', c:'var(--alba)', title:'직업정보 제공 플랫폼', sub:'알바천국', co:'MEDIAWILL NETWORKS', period:'2022.07 – 2024.10',
+ {id:'alba', hl:'허위공고 −81%', no:'03', c:'var(--alba)', title:'직업정보 제공 플랫폼', sub:'알바천국', co:'MEDIAWILL NETWORKS', period:'2022.07 – 2024.10',
   summary:['아르바이트 구인구직 서비스를 제공하는, 총 450만 회원을 보유한 국내 대표 직업정보 제공 플랫폼','서비스기획 실무 : 결제, 인증, 리스크 대응, 개인정보 보호 서비스 분야 역임','2022.07 ~ 2024.10 약 200개 이상의 기획 프로젝트 PM 진행'],
   vis:[['img/hero_alba.webp','알바천국 PC · 모바일 화면']],
   kpis:[['−81%','허위공고 게재율'],['98%','OCR 자동 검수 정확도'],['+52%','N_mgd 간편결제 비중'],['ISMS-P','인증 취득']],
@@ -952,7 +995,7 @@ const P = [
    {k:'브랜드 관리', t:'브랜드 채용관 업무 고도화', b:'브랜드 채용관 업무 프로세스 개선', d:'브랜드 개발데이터 DB화 / UI/UX 개선', e:'브랜드 채용관 현황 지표화 및 업무기능 관리자 내재화', gal:gal('21')},
    {k:'기타', t:'기타 업무 진행', list:['2022.07 ~ 2024.10 약 200개 이상의 기획 프로젝트 PM 진행','2022.07.04 ~ 2023.11.17 JIRA 업무진행리스트 현황 (160개)'], gal:gal('22')}
   ]},
- {id:'hatam', no:'04', c:'var(--hatam)', title:'O2O 타임커머스 플랫폼', sub:'하탐', co:'THE MOMMA', period:'2021.06 – 2022.06',
+ {id:'hatam', hl:'앱 다운로드 4,000건', no:'04', c:'var(--hatam)', title:'O2O 타임커머스 플랫폼', sub:'하탐', co:'THE MOMMA', period:'2021.06 – 2022.06',
   summary:['지역 기반의 ‘중고거래’와 ‘마감할인’ 서비스를 제공하는 땡처리 O2O 플랫폼','서비스 경쟁력을 인정받아 시리즈B 유치기업과 인수합병','서비스기획 실무 총괄 : 전략기획, 운영기획, 마케팅기획 역임'],
   vis:[['img/hero_hatam.webp','하탐 브랜드 비주얼']],
   kpis:[['4,000건','프로모션 2주차 앱 다운로드'],['200만 원','프로모션 예산']],
@@ -962,7 +1005,7 @@ const P = [
    {k:'전략 기획', t:'IR · 사업제휴', list:['임팩트펀드, IR 투자제안 기획 → 시리즈B 투자기업 인수합병, 신한투자금융 PT 진행','B2B, G2B 사업제휴 기획 → 이마트24, 휴박스 사업제휴 체결','지자체 & 공기업 사업제휴 기획 → 대전 마케팅공사 사업제휴 PT 진행','협업툴 운영기획 → 개발본부, 협업툴 콜라비 도입'], gal:gal('25')},
    {k:'마케팅 기획', t:'온 · 오프라인 프로모션', list:['온라인 프로모션 홍보셋 기획','오프라인 프로모션 홍보셋, DB 관리자 기획','200만 원 예산으로 프로모션 2주차 앱 다운로드 4,000건 달성'], gal:gal('26')}
   ]},
- {id:'stock', no:'05', c:'var(--stock)', title:'증권정보 제공 플랫폼', sub:'증권연합TV', co:'MINBEST', period:'2020.08 – 2021.06',
+ {id:'stock', hl:'첫 월 매출 40억', no:'05', c:'var(--stock)', title:'증권정보 제공 플랫폼', sub:'증권연합TV', co:'MINBEST', period:'2020.08 – 2021.06',
   summary:['라이브스트리밍 기반 투자정보 서비스를 제공하는 증권정보 제공 플랫폼','서비스, 마케팅, 운영 기획 등 플랫폼 리뉴얼 총괄','플랫폼 리뉴얼 후 첫 월 40억 매출 달성 (전년 대비 약 300% 증가)'],
   vis:[['img/hero_stock.webp','증권연합TV 멀티 디바이스 화면']],
   kpis:[['40억 원','리뉴얼 후 첫 월 매출'],['약 300%','전년 대비 증가']],
@@ -1043,9 +1086,13 @@ function detailHTML(p){
     <div class="dblock areas">${p.areas.map(a=>`<div class="area"><h4>${esc(a[0])}</h4><ul>${a[1].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`).join('')}</div>
     ${p.cases.map(caseHTML).join('')}</div>`;
 }
+function dnavHTML(p){
+  const i=P.findIndex(x=>x.id===p.id), nx=P[(i+1)%P.length];
+  return `<div class="dnav"><button type="button" class="dn-close" data-act="close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>접기</button><button type="button" class="dn-next" data-act="next" data-next="${nx.id}" style="--nc:${nx.c}"><span><small>${i+1<P.length?'다음 프로젝트':'처음 프로젝트'}</small>${nx.no} · ${esc(nx.title)}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>`;
+}
 function tabHTML(p,open){
   return `<button class="tab" type="button" id="t-${p.id}" style="--c:${p.c}" aria-expanded="${open}" aria-controls="d-${p.id}" data-id="${p.id}">
-    <span class="no">${p.no}</span><span class="tt">${esc(p.title)}<small>${esc(p.sub)}</small></span>
+    <span class="no">${p.no}</span><span class="tt"><span class="tt-h">${esc(p.title)}</span><small>${esc(p.sub)}</small></span>
     <span class="meta"><b>${esc(p.co)}</b>${esc(p.period)}</span><span class="go">${arrow}</span></button>`;
 }
 let current=null;
@@ -1068,6 +1115,13 @@ function collapse(cb){
   setTimeout(fin,650);
 }
 drawer.addEventListener('click',e=>{
+  const dn=e.target.closest('.dnav [data-act]');
+  if(dn&&!busy){
+    const cur=current;
+    if(dn.dataset.act==='close'){const tb=document.getElementById('t-'+cur); collapse(()=>{render(null,false); const nt=document.getElementById('t-'+cur); if(nt){nt.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'}); nt.focus({preventScroll:true});}}); try{history.replaceState(null,'',location.pathname+location.search)}catch(_){} }
+    else {const nid=dn.dataset.next; collapse(()=>{render(nid,true); const nt=document.getElementById('t-'+nid); if(nt) nt.focus({preventScroll:true});}); try{history.replaceState(null,'','#'+nid)}catch(_){} }
+    return;
+  }
   const t=e.target.closest('.tab');
   if(t){const id=t.dataset.id;
     if(busy) return;
@@ -1102,6 +1156,7 @@ function onScroll(){
   const tr=tl.getBoundingClientRect(); const pr=Math.min(1,Math.max(0,(innerHeight*.75-tr.top)/tr.height)); tl.style.setProperty('--tl',pr.toFixed(3));
   let on=-1; secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<innerHeight*.35)on=i;});
   if(innerHeight+scrollY>=document.documentElement.scrollHeight-4) on=links.length-1;
+  document.querySelector('.totop')?.classList.toggle('show',scrollY>innerHeight*1.4);
   links.forEach((a,i)=>a.classList.toggle('on',i===on));
 }
 addEventListener('scroll',onScroll,{passive:true}); onScroll();

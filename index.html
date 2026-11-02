@@ -14,9 +14,6 @@
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-<link rel="canonical" href="https://insuni90-jpg.github.io/portfolio/">
-<meta property="og:locale" content="ko_KR">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -26,7 +23,7 @@
   --paper:#F5F6F9; --card:#FFFFFF; --soft:#EEF1F5; --ink:#18212C; --ink-2:#47515E; --mute:#646E7B; --rule:#E1E5EB;
   --navy:#16233A; --navy-2:#1D2D49; --on-navy:#EEF2F8; --on-navy-mute:#A2AFC4;
   --cobalt:#3A59D1; --cobalt-soft:#E7ECFB;
-  --edu:#007A3F; --dayfin:#006B9A; --alba:#7A6100; --alba-bar:#F5D21E; --hatam:#C0302F; --stock:#9A5222;
+  --edu:#007A3F; --dayfin:#0081B8; --alba:#8A6E00; --alba-bar:#F5D21E; --hatam:#D2383C; --stock:#B4632B;
   --shadow:0 1px 2px rgba(22,35,58,.05),0 12px 32px rgba(22,35,58,.06);
   --f-display:"Bricolage Grotesque","IBM Plex Sans KR",system-ui,sans-serif;
   --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
@@ -72,8 +69,7 @@ img{max-width:100%;display:block}
 .nav ul{display:flex;gap:2px;margin-left:auto}
 .nav a.l{display:block;padding:6px 11px;border-radius:999px;text-decoration:none;font-size:var(--t-sm);color:var(--on-navy-mute);white-space:nowrap;transition:color .2s,background .2s}
 .nav a.l:hover,.nav a.l.on{color:var(--on-navy);background:rgba(255,255,255,.08)}
-@media (max-width:860px){.nav .brand span{display:none}.nav .wrap{gap:8px}}
-@media (max-width:700px){.nav li.opt{display:none}}
+@media (max-width:860px){.nav .brand span{display:none}.nav li.opt{display:none}.nav .wrap{gap:8px}}
 
 /* hero */
 .hero{position:relative;background:var(--navy);color:var(--on-navy);overflow:hidden;isolation:isolate}
@@ -83,7 +79,7 @@ img{max-width:100%;display:block}
 .hero .eyebrow{color:var(--on-navy-mute)}
 .hero h1{font-size:var(--t-hero);letter-spacing:-.03em;line-height:1.22;font-weight:700}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em;white-space:nowrap}
-.hero h1 .ln>span{display:inline-block;animation:rise 1s var(--ease) both}
+.hero h1 .ln>span{display:inline-block;animation:rise 1s cubic-bezier(.2,.75,.15,1) both}
 .hero h1 .ln:nth-child(2)>span{animation-delay:.12s}
 .hero h1 .ln:nth-child(3)>span{animation-delay:.24s}
 .hero h1 em{font-style:normal;background:linear-gradient(90deg,#8FA5FF,#5FD6AB);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -216,7 +212,7 @@ section.sec:last-of-type{padding-bottom:var(--gap-sec)}
 /* projects drawer */
 .drawer{display:grid;gap:12px}
 .tab{--c:var(--cobalt);display:grid;grid-template-columns:56px minmax(0,1fr) auto auto;align-items:center;gap:20px;width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 24px;cursor:pointer;position:relative;overflow:hidden;isolation:isolate;transition:border-color .3s}
-.tab::before{content:"";position:absolute;inset:0;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease);z-index:-1;opacity:.07}
+.tab::before{content:"";position:absolute;inset:0;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.75,.15,1);z-index:-1;opacity:.07}
 .tab:hover::before{transform:scaleX(1)}
 .tab .no{font-family:var(--f-display);font-weight:700;font-size:var(--t-xl);color:var(--c);line-height:1}
 .tab .tt{font-size:var(--t-md);font-weight:600}
@@ -231,11 +227,11 @@ section.sec:last-of-type{padding-bottom:var(--gap-sec)}
 @media (max-width:720px){.tab{grid-template-columns:40px minmax(0,1fr) auto;gap:14px;padding:18px}.tab .meta{display:none}.tab .no{font-size:var(--t-lg)}}
 
 /* project detail */
-.detail{--c:var(--cobalt);background:var(--card);border:1px solid var(--rule);border-radius:20px;overflow:hidden;margin:2px 0 18px;animation:open .5s var(--ease)}
+.detail{--c:var(--cobalt);background:var(--card);border:1px solid var(--rule);border-radius:20px;overflow:hidden;margin:2px 0 18px;animation:open .55s cubic-bezier(.2,.75,.15,1)}
 @keyframes open{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 .dblock{padding:clamp(28px,4.5vw,56px)}
 .dblock+.dblock{border-top:1px solid var(--rule)}
-.d-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.d-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;border-top:3px solid var(--c)}
 .d-top .eyebrow{color:var(--c)}
 .d-top h3{font-size:var(--t-2xl);letter-spacing:-.025em;margin-top:10px}
 .d-top .co{margin-top:8px;font-size:var(--t-xs);color:var(--mute);font-family:var(--f-mono);letter-spacing:.06em}
@@ -244,7 +240,7 @@ section.sec:last-of-type{padding-bottom:var(--gap-sec)}
 .d-top li::before{content:"";position:absolute;left:0;top:.78em;width:5px;height:5px;background:var(--c);border-radius:1px}
 .d-top .vis{display:grid;gap:12px;align-items:center}
 .d-top .vis.duo{grid-template-columns:minmax(0,1fr);gap:4px}
-.d-top .vis img{width:100%;height:auto;transition:transform .9s var(--ease)}
+.d-top .vis img{width:100%;height:auto;transition:transform .9s cubic-bezier(.2,.75,.15,1)}
 .d-top .vis:hover img{transform:scale(1.02)}
 @media (max-width:760px){.d-top{grid-template-columns:minmax(0,1fr)}.d-top .vis{max-width:480px}}
 .kpis{display:flex;flex-wrap:wrap;gap:20px 26px;margin-top:28px;padding-top:22px;border-top:1px solid var(--rule)}
@@ -400,7 +396,7 @@ section.sec:last-of-type{padding-bottom:var(--gap-sec)}
 
 /* ---------- motion: one-shot reveals, staggered, eased ---------- */
 @media (prefers-reduced-motion:no-preference){
-  html.js .rv{opacity:0;transform:translate3d(0,22px,0);transition:opacity .75s var(--ease),transform .85s var(--ease);transition-delay:calc(var(--i,0) * 55ms)}
+  html.js .rv{opacity:0;transform:translate3d(0,26px,0);transition:opacity 1s var(--ease),transform 1.1s var(--ease);transition-delay:calc(var(--i,0) * 70ms)}
   html.js .rv.in{opacity:1;transform:none}
   html.js .sec-head.rv{transform:translate3d(0,18px,0)}
   html.js .sec-head .eyebrow{display:inline-flex;align-items:center;gap:0}
@@ -542,6 +538,7 @@ section.sec:last-of-type{padding-bottom:var(--gap-sec)}
 .gx .ghead span:empty{background:none;padding:0}
 @media (max-width:1100px){.gx .cap span{white-space:normal}}
 @media (max-width:640px){
+  .gx .pgrid>.cell:last-child:nth-child(odd){width:auto!important;justify-self:stretch!important}
   .gx .pgrid>.cell:last-child:nth-child(odd) .fr{aspect-ratio:var(--ia)}
   .gx .pgrid>.cell:last-child:nth-child(odd) .fr img{max-height:260px}
 }
@@ -602,11 +599,11 @@ section.sec:last-of-type{padding-bottom:var(--gap-sec)}
 
 /* smooth gallery reveal: panel triggers once, children cascade, images fade in when decoded */
 @media (prefers-reduced-motion:no-preference){
-  html.js .case .gx.rv{opacity:0;transform:translate3d(0,20px,0);transition:opacity .7s var(--ease),transform .85s var(--ease)}
+  html.js .case .gx.rv{opacity:0;transform:translate3d(0,24px,0);transition:opacity .9s var(--ease),transform 1.1s var(--ease)}
   html.js .case .gx.rv.in{opacity:1;transform:none}
-  html.js .gx .cell,html.js .gx .ri,html.js .gx .rcap,html.js .gx .rarrow,html.js .gx .ghead{opacity:0;transform:translate3d(0,14px,0);transition:opacity .65s var(--ease),transform .8s var(--ease);transition-delay:calc(.12s + var(--i,0) * 50ms);will-change:opacity,transform}
-  html.js .gx .ri,html.js .gx .rcap{transition-delay:calc(.35s + var(--i,0) * 50ms)}
-  html.js .gx .rarrow{transition-delay:.3s}
+  html.js .gx .cell,html.js .gx .ri,html.js .gx .rcap,html.js .gx .rarrow,html.js .gx .ghead{opacity:0;transform:translate3d(0,14px,0);transition:opacity .8s var(--ease),transform 1s var(--ease);transition-delay:calc(.15s + var(--i,0) * 70ms);will-change:opacity,transform}
+  html.js .gx .ri,html.js .gx .rcap{transition-delay:calc(.45s + var(--i,0) * 70ms)}
+  html.js .gx .rarrow{transition-delay:.4s}
   html.js .gx.in .cell,html.js .gx.in .ri,html.js .gx.in .rcap,html.js .gx.in .rarrow,html.js .gx.in .ghead{opacity:1;transform:none}
   html.js .gx img,html.js .dflow img,html.js .pc-v img{opacity:0;transition:opacity .7s var(--ease)}
   html.js .gx img.ld,html.js .dflow img.ld,html.js .pc-v img.ld{opacity:1}
@@ -685,8 +682,8 @@ a.copy{text-decoration:none;display:inline-flex;align-items:center}
 @media (max-width:640px){.cbtns{flex-direction:column;width:100%}.cbtn{justify-content:flex-start}}
 .nav .brand{display:inline-flex;align-items:center;gap:9px}
 .nav .brand .logo{width:38px;height:14px;flex:none}
-@media (max-width:860px){.nav .brand .logo{width:32px;height:12px}.nav .brand{gap:7px}.nav a.l{padding:10px 8px;font-size:.8rem}.nav ul{gap:0}}
-@media (max-width:370px){.nav a.l{padding:10px 6px;font-size:.76rem}}
+@media (max-width:860px){.nav .brand .logo{width:32px;height:12px}.nav .brand{gap:7px}.nav a.l{padding:6px 8px;font-size:.8rem}.nav ul{gap:0}}
+@media (max-width:370px){.nav a.l{padding:6px 6px;font-size:.76rem}}
 @media (max-width:340px){.nav .brand .logo{display:none}}
 
 /* QA6 fixes */
@@ -746,46 +743,13 @@ a.copy{text-decoration:none;display:inline-flex;align-items:center}
 :root[data-theme="dark"] .totop{background:#26344F}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .totop{background:#26344F}}
 /* AI section band */
-section.sec#ai{background:var(--soft);margin-top:var(--gap-sec);padding-block:clamp(64px,8vw,104px)}
+section.sec#ai{background:var(--soft);padding-bottom:var(--gap-sec);margin-top:var(--gap-sec);padding-top:var(--gap-sec)}
 section.sec#ai+section.sec{padding-top:var(--gap-sec)}
 #skills{padding-bottom:0}
 /* reduced motion: brand logos in one wrapped row */
 @media (prefers-reduced-motion:reduce){.btrack{display:flex!important;flex-wrap:wrap;gap:14px 40px;width:auto!important}.btrack li{width:auto!important;margin:0!important;justify-content:flex-start!important}.btrack li[aria-hidden]{display:none}}
 
-/* ---------- v4: review fixes ---------- */
-/* colour as identifier only: large numerals back on ink, single-hue progress */
-.progress{background:var(--cobalt)}
-.res .v,.kpi b,.pcard .kpi b,.job .svc b{color:var(--ink)}
-.res{position:relative}
-.res::before{content:"";position:absolute;right:20px;top:26px;width:7px;height:7px;border-radius:50%;background:var(--c)}
-.bde>div.eff{background:var(--soft)}
-.bde>div.eff b{color:var(--ink)}
-.detail{border-top:3px solid var(--c)}
-.scrollcue{display:none}
-/* readability */
-.job .hl{font-size:var(--t-sm);color:var(--ink-2);max-width:62ch}
-.dflow .s p,.pcard .pc-a,.flow .out,.aitools p,.res .w,.kpi span,.idcard .role{font-size:var(--t-sm)}
-.bde b,.case-head small,.dflow .s b{font-family:var(--f-body);letter-spacing:0;font-weight:600;text-transform:none}
-.job .when,.gl-when,.d-top .co{font-family:var(--f-mono),"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;letter-spacing:0}
-.res .v small{font-size:max(.6em,13px)}
-p,li,dd,figcaption,.sync{text-wrap:pretty}
-.hero .tag{max-width:48ch}
-.d-top h3{font-size:clamp(1.5rem,2.2vw,1.9rem)}
-.case-head h4{font-size:var(--t-lg)}
-.area h4,.dflow .s strong{font-size:var(--t-md)}
-.gx .cap i,.gx .ghead,.case .gx::before,.blab small,.tab .meta b,.foot,.gx .mres{font-size:.75rem}
-.gx .cap i,.gx .ghead span,.case .gx::before{color:var(--ink-2)!important}
-@media (max-width:400px){.idcard dt{font-size:.72rem}}
-@media (min-width:861px){.hero .stat .lab{font-size:var(--t-sm)}}
-@media (max-width:860px){.br-d{display:none}}
-/* layout */
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:20px 16px}
-.areas{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-.tools{margin-top:40px}
-@media (min-width:641px) and (max-width:1100px){.gx .cap{min-height:calc(2.6em + 11px)}.gx .rbox{bottom:54px!important}.gx .grow:has(.pgrid.narrow) .cap{min-height:calc(3.9em + 11px)}.gx .grow:has(.pgrid.narrow) .rbox{bottom:70px!important}}
-.job:not(:has(+ .job))::before{bottom:14px}
-.copy.ico{position:relative}
-.copy.ico::after{content:"";position:absolute;inset:-5px;border-radius:50%}
+/* ---------- v4 (motion + a11y only) ---------- */
 /* nav lands on scroll */
 .nav{transition:border-color .3s}
 .nav .wrap{transition:padding .3s var(--ease)}
@@ -796,12 +760,8 @@ p,li,dd,figcaption,.sync{text-wrap:pretty}
 .hero .stat::before{content:"";display:block;height:1px;margin-bottom:16px;background:rgba(255,255,255,.14);transform:scaleX(0);transform-origin:left;animation:hl .9s var(--ease) .85s both}
 .hero .stat:nth-child(2)::before{animation-delay:.95s}.hero .stat:nth-child(3)::before{animation-delay:1.05s}.hero .stat:nth-child(4)::before{animation-delay:1.15s}
 @keyframes hl{to{transform:scaleX(1)}}
-/* current job dot rings once */
-@media (prefers-reduced-motion:no-preference){
-  html.js .job.rv.in:first-of-type::after{animation:ring 1.1s var(--ease) .9s 1 both}
-  @keyframes ring{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--c) 45%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
-}
 /* copy → check morph */
+.copy.ico{position:relative}
 .copy.ico svg,.cbtn svg{transition:opacity .2s,transform .25s var(--ease)}
 .copy.ico.done svg,.cbtn.done svg{opacity:0;transform:scale(.6)}
 .copy.ico.done::before,.cbtn.done::before{content:"";position:absolute;width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center/16px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center/16px no-repeat;animation:pop .3s var(--ease) both}
@@ -809,17 +769,11 @@ p,li,dd,figcaption,.sync{text-wrap:pretty}
 .cbtn{position:relative}
 .cbtn.done::before{left:18px;top:50%;translate:0 -50%}
 @keyframes pop{from{transform:scale(.5);opacity:0}to{transform:none;opacity:1}}
-/* hover / press feedback */
+/* a11y: hidden back-to-top leaves the tab order */
 .totop{visibility:hidden;transition:opacity .35s,transform .35s var(--ease),visibility .35s}
 .totop.show{visibility:visible}
-.totop.show:hover{transform:translateY(-2px)}
-.tab:active .go{transform:scale(.92)}
-.tab[aria-expanded="true"]:active .go{transform:rotate(90deg) scale(.92)}
-/* dnav sits inside the rounded detail */
+/* end nav sits inside the rounded detail */
 .dnav{margin-top:0}
-/* visually hidden */
-.nb{white-space:nowrap}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -852,16 +806,17 @@ p,li,dd,figcaption,.sync{text-wrap:pretty}
         <span class="ln"><span>이인수입니다.</span></span>
       </h1>
       <p class="tag">Designing services that make everyday life better — and growing together with the company through every service I build.</p>
-      <div class="hcta"><a class="hbtn pri" href="#projects">프로젝트 보기<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a><a class="hbtn sec" href="https://drive.google.com/file/d/1etYKmDnJ0HirBSA-TZuz_CmSV8SFsCIj/view?usp=sharing" target="_blank" rel="noopener">포트폴리오 PDF<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg></a></div>
+      <div class="hcta"><a class="hbtn sec" href="https://drive.google.com/file/d/1etYKmDnJ0HirBSA-TZuz_CmSV8SFsCIj/view?usp=sharing" target="_blank" rel="noopener">포트폴리오 PDF<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg></a></div>
     </div>
     <div class="stats">
       <div class="stat"><b class="num"><span data-count="10">10</span>+<small>Years</small></b><span class="lab">총 경력</span></div>
-      <div class="stat"><b class="num"><span data-count="5">5</span><small>Domains</small></b><span class="lab">교육 · 가상자산 · 구인구직 · O2O · 증권</span></div>
-      <div class="stat"><b class="num"><span data-count="4">4</span><small>Roles</small></b><span class="lab">서비스 · 전략 · 운영 · 마케팅 기획</span></div>
+      <div class="stat"><b class="num"><span data-count="5">5</span><small>Domains</small></b><span class="lab">교육 · 가상자산 · 구인구직 · O2O · 증권</span></div>
+      <div class="stat"><b class="num"><span data-count="4">4</span><small>Roles</small></b><span class="lab">서비스 · 전략 · 운영 · 마케팅 기획</span></div>
       <div class="stat"><b>B2B · B2C</b><span class="lab">Web · App · Admin 기획</span></div>
     </div>
   </div>
-  </header>
+  <a class="scrollcue" href="#about" aria-label="About Me로 이동"><span></span></a>
+</header>
 
 <section class="brands" aria-label="재직 · 협업 브랜드">
   <div class="bwrap"><p class="blab"><span>재직 · 협업 브랜드</span><small>WORKED WITH</small></p>
@@ -874,11 +829,11 @@ p,li,dd,figcaption,.sync{text-wrap:pretty}
       <div class="sec-head rv about-head"><p class="eyebrow">About Me</p></div>
       <div class="about">
         <div>
-          <h2 class="lead rv">정책 설계부터 화면 기획, 운영 체계까지 —<br class="br-d"> <strong>서비스가 실제로 돌아가는 구조</strong>를 만드는 일에 강합니다.</h2>
+          <h2 class="lead rv">정책 설계부터 화면 기획, 운영 체계까지 —<br><strong>서비스가 실제로 돌아가는 구조</strong>를 만드는 일에 강합니다.</h2>
           <ul class="points stg">
             <li class="rv">B2C · B2B 플랫폼의 Web / App / Admin 기획부터 오픈 · 운영까지 리딩합니다.</li>
             <li class="rv">교육, 구인구직, O2O, 가상자산 · 증권 등 다양한 도메인의 서비스를 기획했습니다.</li>
-            <li class="rv">결제(PG · 간편결제), 본인인증, <span class="nb">ISMS-P</span>, 법령 준수 등 정책 · 리스크 기반 기획에 강점이 있습니다.</li>
+            <li class="rv">결제(PG · 간편결제), 본인인증, ISMS-P, 법령 준수 등 정책 · 리스크 기반 기획에 강점이 있습니다.</li>
             <li class="rv">AI를 활용해 리서치 · PRD 작성 · 화면설계 · 프로토타입 검증까지 기획 전 과정의 속도와 완성도를 높입니다.</li>
             <li class="rv">개발 · 디자인 · QA 및 B2B 제휴사(IT, 언론사, 공기업 등)와 원활하게 협업하며 결과물을 만들었습니다.</li>
           </ul>
@@ -1007,7 +962,6 @@ p,li,dd,figcaption,.sync{text-wrap:pretty}
   </section>
 </main>
 
-<div id="live" class="vh" role="status" aria-live="polite"></div>
 <a class="totop" href="#top" aria-label="맨 위로"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
 <footer class="contact compact" id="contact">
   <div class="wrap">
@@ -1025,7 +979,7 @@ p,li,dd,figcaption,.sync{text-wrap:pretty}
 
 <script>
 document.documentElement.lang='ko';
-const G = {"9": {"sx": [], "sy": [], "ar": 2.1653, "it": [["g3/s09_1.webp", "PRD 수립", 743, 590, 0.0, 0.815, 27.605], ["g3/s09_2.webp", "플랫폼 리뷰", 736, 590, 36.794, 0.815, 27.322], ["g3/s09_3.webp", "프로젝트 관리", 784, 590, 70.859, 0.815, 29.141], ["g3/s09_4.webp", "FO 화면 기획", 723, 598, 0.622, 51.878, 26.878], ["g3/s09_5.webp", "BO 화면 기획", 736, 598, 36.794, 51.878, 27.322], ["g3/s09_6.webp", "프로토타입 구현", 784, 624, 70.859, 49.811, 29.141]], "lb": [["FO 화면 기획", 5.22, 52.74], ["PRD 수립", 5.22, 3.04], ["플랫폼 리뷰", 41.8, 3.04], ["프로젝트 관리", 75.91, 3.04], ["BO 화면 기획", 41.8, 52.74], ["프로토타입 구현", 75.91, 51.51]]}, "11": {"sx": [], "sy": [], "ar": 2.1636, "it": [["g3/s11_1.webp", "방향성 수립", 750, 598, 0.466, 0.671, 27.896], ["g3/s11_2.webp", "정책 수립", 720, 590, 37.261, 0.835, 26.775], ["g3/s11_3.webp", "약관 수립", 723, 590, 71.292, 1.078, 26.876], ["g3/s11_4.webp", "PC 화면 기획", 726, 598, 0.552, 51.873, 27.003], ["g3/s11_5.webp", "TAB 화면 기획", 704, 631, 37.914, 49.222, 26.177], ["g3/s11_6.webp", "MO 화면 기획", 768, 612, 71.426, 50.811, 28.574]], "lb": [["PC 화면 기획", 5.15, 52.73], ["TAB 화면 기획", 41.76, 52.73], ["MO 화면 기획", 75.89, 51.5], ["방향성 수립", 5.15, 3.04], ["정책 수립", 41.76, 3.04], ["약관 수립", 75.89, 3.04]]}, "13": {"sx": [62.43], "sy": [48.38], "ar": 2.7795, "it": [["g3/s13_1.webp", "정책 수립", 834, 511, 0.0, 0.517, 29.312], ["g3/s13_2.webp", "데이터 API 기획", 834, 511, 29.268, 0.559, 29.312], ["g3/s13_3.webp", "ASP 모바일 화면", 593, 1779, 66.016, 0.0, 12.126], ["g3/s13_4.webp", "ASP 모바일 화면", 584, 1779, 76.99, 0.0, 12.128], ["g3/s13_5.webp", "ASP 모바일 화면", 590, 1779, 87.872, 0.0, 12.128], ["g3/s13_7.webp", "종목상세 화면 기획", 834, 506, 0.0, 50.424, 29.312], ["g3/s13_6.webp", "시장동향 화면 기획", 834, 509, 29.268, 50.286, 29.312]], "lb": [["정책 수립", 25.95, 13.72], ["종목상세 화면 기획", 25.95, 84.51], ["시장동향 화면 기획", 55.38, 84.51], ["데이터 API 기획", 55.35, 13.72]]}, "14": {"sx": [60.94], "sy": [48.43], "ar": 2.849, "it": [["g3/s14_1.webp", "Flow Chart", 834, 515, 0.0, 0.302, 28.624], ["g3/s14_2.webp", "서버 정책 수립", 835, 515, 29.054, 0.302, 28.624], ["g3/s14_3.webp", "관리자 시스템 화면", 1801, 1779, 64.458, 0.0, 35.542], ["g3/s14_4.webp", "운영관리 화면 기획", 834, 508, 0.0, 50.335, 28.624], ["g3/s14_5.webp", "고객관리 화면 기획", 835, 508, 29.054, 50.335, 28.624]], "lb": [["운영관리 화면 기획", 25.81, 84.59], ["고객관리 화면 기획", 54.56, 84.59], ["서버 정책 수립", 54.53, 13.73], ["Flow Chart", 25.81, 13.73]]}, "15": {"sx": [], "sy": [], "ar": 2.9245, "it": [["g3/s15_1.webp", "서비스 소개서", 1390, 975, 0.0, 0.0, 48.771], ["g3/s15_2.webp", "데이터 검증", 1420, 959, 50.215, 0.0, 49.785]], "lb": [["서비스 소개서", 4.89, 87.5], ["데이터 검증", 54.52, 84.37]]}, "17": {"sx": [62.03], "sy": [48.2], "ar": 2.8086, "it": [["g3/s17_1.webp", "정책 수립", 834, 506, 0.0, 0.0, 29.165], ["g3/s17_2.webp", "Front 화면 기획", 834, 506, 28.869, 0.0, 29.165], ["g3/s17_3.webp", "기업인증 모바일 화면", 1711, 1771, 65.604, 0.0, 34.396], ["g3/s17_4.webp", "Flow Chart", 834, 506, 0.117, 50.254, 29.165], ["g3/s17_5.webp", "Admin 기획", 834, 506, 28.869, 50.254, 29.165]], "lb": [["정책 수립", 25.4, 13.35], ["Front 화면 기획", 54.66, 14.28], ["Flow Chart", 25.4, 84.52], ["Admin 기획", 54.69, 84.52]]}, "18": {"sx": [], "sy": [], "ar": 2.486, "it": [["g3/s18_1.webp", "준법사항 리스트", 834, 506, 0.0, 0.0, 32.95], ["g3/s18_2.webp", "근로기준법", 834, 506, 32.615, 0.0, 32.95], ["g3/s18_3.webp", "위치정보법", 834, 506, 66.404, 0.0, 32.95], ["g3/s18_4.webp", "전자상거래법", 834, 506, 0.132, 50.254, 32.95], ["g3/s18_5.webp", "직업안정법", 834, 506, 32.615, 50.254, 32.95], ["g3/s18_6.webp", "채용절차법", 834, 506, 66.404, 50.254, 32.95]], "lb": [["준법사항 리스트", 28.7, 13.35], ["근로기준법", 61.75, 14.28], ["전자상거래법", 28.7, 84.52], ["직업안정법", 61.79, 84.52], ["위치정보법", 95.54, 14.28], ["채용절차법", 95.57, 84.52]]}, "19": {"sx": [66.81], "sy": [48.45], "ar": 2.595, "it": [["g3/s19_1.webp", "정책 수립", 834, 506, 0.0, 0.486, 31.411], ["g3/s19_2.webp", "Front 화면 기획", 834, 506, 31.093, 0.486, 31.411], ["g3/s19_3.webp", "ISMS-P 인증서", 1279, 1780, 72.289, 0.0, 27.711], ["g3/s19_4.webp", "약관 개정", 834, 506, 0.126, 50.496, 31.411], ["g3/s19_5.webp", "Admin 기획", 834, 506, 31.093, 50.496, 31.411]], "lb": [["정책 수립", 27.36, 13.77], ["Front 화면 기획", 58.87, 14.7], ["약관 개정", 27.36, 84.6], ["Admin 기획", 58.9, 84.6]]}, "20": {"sx": [61.16], "sy": [48.43], "ar": 2.819, "it": [["g3/s20_1.webp", "가맹점 계약", 834, 523, 0.0, 0.0, 28.929], ["g3/s20_2.webp", "Front 화면 기획", 834, 506, 28.264, 0.44, 28.929], ["g3/s20_3.webp", "결제수단 선택 화면", 1724, 1633, 65.613, 3.426, 34.387], ["g3/s20_4.webp", "정책 수립", 834, 506, 0.0, 50.391, 28.929], ["g3/s20_5.webp", "Admin 기획", 834, 506, 28.264, 50.473, 28.929]], "lb": [["가맹점 계약", 24.83, 13.73], ["Front 화면 기획", 53.85, 14.66], ["정책 수립", 24.83, 84.59], ["Admin 기획", 53.87, 84.59]]}, "21": {"sx": [61.63], "sy": [48.2], "ar": 2.8269, "it": [["g3/s21_1.webp", "UI/UX 개선", 834, 506, 0.0, 0.0, 28.976], ["g3/s21_2.webp", "Front 화면 기획", 834, 506, 28.682, 0.0, 28.976], ["g3/s21_3.webp", "브랜드 채용관 화면", 1735, 1593, 65.354, 5.376, 34.646], ["g3/s21_4.webp", "지표화 관리", 834, 506, 0.116, 50.254, 28.976], ["g3/s21_5.webp", "Admin 내재화", 834, 506, 28.682, 50.254, 28.976]], "lb": [["UI/UX 개선", 25.24, 13.35], ["Front 화면 기획", 54.31, 14.28], ["지표화 관리", 25.24, 84.52], ["Admin 내재화", 54.33, 84.52]]}, "22": {"sx": [], "sy": [], "ar": 2.6976, "it": [["g3/s22_1.webp", "JIRA 업무진행리스트", 1450, 917, 0.0, 0.0, 49.865], ["g3/s22_2.webp", "JIRA 이슈 목록", 1480, 1078, 49.122, 0.0, 50.878]], "lb": []}, "24": {"sx": [61.2], "sy": [48.27], "ar": 2.8513, "it": [["g3/s24_1.webp", "일정 관리", 834, 506, 0.0, 0.0, 28.773], ["g3/s24_2.webp", "정책 수립", 834, 506, 28.481, 0.0, 28.773], ["g3/s24_3.webp", "타임커머스 상품 화면", 589, 1545, 64.438, 3.215, 11.675], ["g3/s24_4.webp", "타임커머스 상품 화면", 621, 1545, 76.138, 3.317, 12.517], ["g3/s24_5.webp", "타임커머스 상품 화면", 622, 1545, 87.475, 3.317, 12.525], ["g3/s24_6.webp", "전략 수립", 834, 504, 0.0, 50.333, 28.773], ["g3/s24_7.webp", "화면 기획", 834, 505, 28.481, 50.333, 28.773]], "lb": [["일정 관리", 25.06, 13.37], ["정책 수립", 53.93, 14.3], ["화면 기획", 53.95, 84.65], ["전략 수립", 25.06, 84.65]]}, "25": {"sx": [], "sy": [], "ar": 2.5331, "it": [["g3/s25_1.webp", "IR 제안서", 1330, 534, 0.0, 0.0, 48.159], ["g3/s25_2.webp", "B2B 사업제휴", 1328, 534, 51.931, 0.0, 48.069], ["g3/s25_3.webp", "G2B 사업제휴", 1328, 534, 0.09, 51.085, 48.069], ["g3/s25_4.webp", "협업툴 도입", 1328, 534, 51.877, 51.085, 48.069]], "lb": [["IR 제안서", 4.87, 31.81], ["B2B 사업제휴", 57.34, 32.07], ["G2B 사업제휴", 5.2, 86.05], ["협업툴 도입", 57.34, 86.56]]}, "26": {"sx": [64.22], "sy": [45.79], "ar": 3.5009, "it": [["g3/s26_1.webp", "온라인 프로모션", 541, 825, 0.515, 3.175, 17.683], ["g3/s26_2.webp", "온라인 프로모션 이벤트", 517, 825, 18.138, 3.175, 16.907], ["g3/s26_3.webp", "오프라인 프로모션", 778, 812, 35.881, 4.648, 25.445], ["g3/s26_4.webp", "프로모션 기간 앱 다운로드 추이", 1712, 1472, 67.843, 3.175, 32.157]], "lb": [["온라인 프로모션", 4.53, 4.32], ["오프라인 프로모션", 38.53, 4.32]]}, "28": {"sx": [53.76], "sy": [44.37], "ar": 2.8552, "it": [["g3/s28_1.webp", "로드맵 일정관리", 1404, 769, 0.0, 6.7, 49.346], ["g3/s28_2.webp", "리뉴얼 오픈 홍보물", 1061, 1734, 58.179, 0.0, 21.764], ["g3/s28_3.webp", "리뉴얼 오픈 홍보물", 1045, 1734, 78.631, 0.0, 21.369]], "lb": [["로드맵 일정관리", 44.71, 14.09]]}, "29": {"sx": [56.43], "sy": [25.88, 70.84], "ar": 2.8145, "it": [["g3/s29_1.webp", "스트리밍 기획", 692, 487, 0.0, 0.748, 24.921], ["g3/s29_2.webp", "채팅창 기획", 702, 487, 25.892, 0.748, 25.25], ["g3/s29_3.webp", "스트리밍 화면", 1282, 893, 62.611, 0.0, 26.523], ["g3/s29_4.webp", "스트리밍 화면", 495, 885, 89.775, 2.017, 10.225], ["g3/s29_5.webp", "VOD 기획", 690, 476, 0.151, 51.874, 24.811], ["g3/s29_6.webp", "방송채널 기획", 702, 476, 25.289, 51.874, 25.25], ["g3/s29_7.webp", "방송채널 화면", 1742, 827, 62.736, 51.874, 36.038]], "lb": [["스트리밍 기획", 21.89, 8.51], ["채팅창 기획", 47.21, 8.57], ["VOD 기획", 20.9, 61.27], ["방송채널 기획", 47.18, 61.27]]}, "30": {"sx": [49.04], "sy": [25.58, 67.75], "ar": 2.4013, "it": [["g3/s30_1.webp", "정보발송 기획", 1064, 519, 0.0, 0.74, 42.088], ["g3/s30_2.webp", "정보발송 어드민 화면", 1890, 917, 57.029, 0.0, 42.971], ["g3/s30_3.webp", "상품관리 기획", 1064, 447, 0.0, 53.1, 42.088], ["g3/s30_4.webp", "상품관리 어드민 화면", 1890, 859, 57.029, 53.1, 42.971]], "lb": [["정보발송 기획", 38.98, 11.96], ["상품관리 기획", 38.75, 64.27]]}, "31": {"sx": [], "sy": [], "ar": 3.2767, "it": [["g3/s31_1.webp", "애널리틱스 집행", 993, 863, 0.0, 1.553, 34.589], ["g3/s31_2.webp", "DB수집 분석", 744, 876, 36.767, 0.0, 25.886], ["g3/s31_3.webp", "프로모션 기획", 893, 876, 67.211, 0.0, 31.074]], "lb": [["애널리틱스 집행", 25.45, 32.77], ["DB수집 분석", 60.13, 26.71], ["프로모션 기획", 95.64, 18.6]]}};
+const G = {"9": {"sx": [], "sy": [], "ar": 2.1653, "it": [["g3/s09_1.webp", "PRD 수립", 743, 590, 0.0, 0.815, 27.605], ["g3/s09_2.webp", "플랫폼 리뷰", 736, 590, 36.794, 0.815, 27.322], ["g3/s09_3.webp", "프로젝트 관리", 784, 590, 70.859, 0.815, 29.141], ["g3/s09_4.webp", "FO 화면 기획", 723, 598, 0.622, 51.878, 26.878], ["g3/s09_5.webp", "BO 화면 기획", 736, 598, 36.794, 51.878, 27.322], ["g3/s09_6.webp", "프로토타입 구현", 784, 624, 70.859, 49.811, 29.141]], "lb": [["FO 화면 기획", 5.22, 52.74], ["PRD 수립", 5.22, 3.04], ["플랫폼 리뷰", 41.8, 3.04], ["프로젝트 관리", 75.91, 3.04], ["BO 화면 기획", 41.8, 52.74], ["프로토타입 구현", 75.91, 51.51]]}, "11": {"sx": [], "sy": [], "ar": 2.1636, "it": [["g3/s11_1.webp", "방향성 수립", 750, 598, 0.466, 0.671, 27.896], ["g3/s11_2.webp", "정책 수립", 720, 590, 37.261, 0.835, 26.775], ["g3/s11_3.webp", "약관 수립", 723, 590, 71.292, 1.078, 26.876], ["g3/s11_4.webp", "PC 화면 기획", 726, 598, 0.552, 51.873, 27.003], ["g3/s11_5.webp", "TAB 화면 기획", 704, 631, 37.914, 49.222, 26.177], ["g3/s11_6.webp", "MO 화면 기획", 768, 612, 71.426, 50.811, 28.574]], "lb": [["PC 화면 기획", 5.15, 52.73], ["TAB 화면 기획", 41.76, 52.73], ["MO 화면 기획", 75.89, 51.5], ["방향성 수립", 5.15, 3.04], ["정책 수립", 41.76, 3.04], ["약관 수립", 75.89, 3.04]]}, "13": {"sx": [62.43], "sy": [48.38], "ar": 2.7795, "it": [["g3/s13_1.webp", "정책 수립", 834, 511, 0.0, 0.517, 29.312], ["g3/s13_2.webp", "데이터 API 기획", 834, 511, 29.268, 0.559, 29.312], ["g3/s13_3.webp", "ASP 모바일 화면", 593, 1779, 66.016, 0.0, 12.126], ["g3/s13_4.webp", "ASP 모바일 화면", 584, 1779, 76.99, 0.0, 12.128], ["g3/s13_5.webp", "ASP 모바일 화면", 590, 1779, 87.872, 0.0, 12.128], ["g3/s13_7.webp", "종목상세 화면 기획", 834, 506, 0.0, 50.424, 29.312], ["g3/s13_6.webp", "시장동향 화면 기획", 834, 509, 29.268, 50.286, 29.312]], "lb": [["정책 수립", 25.95, 13.72], ["종목상세 화면 기획", 25.95, 84.51], ["시장동향 화면 기획", 55.38, 84.51], ["데이터 API 기획", 55.35, 13.72]]}, "14": {"sx": [60.94], "sy": [48.43], "ar": 2.849, "it": [["g3/s14_1.webp", "Flow Chart", 834, 515, 0.0, 0.302, 28.624], ["g3/s14_2.webp", "서버 정책 수립", 835, 515, 29.054, 0.302, 28.624], ["g3/s14_3.webp", "관리자 시스템 화면", 1801, 1779, 64.458, 0.0, 35.542], ["g3/s14_4.webp", "운영관리 화면 기획", 834, 508, 0.0, 50.335, 28.624], ["g3/s14_5.webp", "고객관리 화면 기획", 835, 508, 29.054, 50.335, 28.624]], "lb": [["운영관리 화면 기획", 25.81, 84.59], ["고객관리 화면 기획", 54.56, 84.59], ["서버 정책 수립", 54.53, 13.73], ["Flow Chart", 25.81, 13.73]]}, "15": {"sx": [], "sy": [], "ar": 2.9245, "it": [["g3/s15_1.webp", "서비스 소개서", 1390, 975, 0.0, 0.0, 48.771], ["g3/s15_2.webp", "데이터 검증", 1420, 959, 50.215, 0.0, 49.785]], "lb": [["서비스 소개서", 4.89, 87.5], ["데이터 검증", 54.52, 84.37]]}, "17": {"sx": [62.03], "sy": [48.2], "ar": 2.8086, "it": [["g3/s17_1.webp", "정책 수립", 834, 506, 0.0, 0.0, 29.165], ["g3/s17_2.webp", "Front 화면기획", 834, 506, 28.869, 0.0, 29.165], ["g3/s17_3.webp", "기업인증 모바일 화면", 1711, 1771, 65.604, 0.0, 34.396], ["g3/s17_4.webp", "Flow Chart", 834, 506, 0.117, 50.254, 29.165], ["g3/s17_5.webp", "Admin 기획", 834, 506, 28.869, 50.254, 29.165]], "lb": [["정책 수립", 25.4, 13.35], ["Front 화면기획", 54.66, 14.28], ["Flow Chart", 25.4, 84.52], ["Admin 기획", 54.69, 84.52]]}, "18": {"sx": [], "sy": [], "ar": 2.486, "it": [["g3/s18_1.webp", "준법사항 리스트", 834, 506, 0.0, 0.0, 32.95], ["g3/s18_2.webp", "근로기준법", 834, 506, 32.615, 0.0, 32.95], ["g3/s18_3.webp", "위치정보법", 834, 506, 66.404, 0.0, 32.95], ["g3/s18_4.webp", "전자상거래법", 834, 506, 0.132, 50.254, 32.95], ["g3/s18_5.webp", "직업안정법", 834, 506, 32.615, 50.254, 32.95], ["g3/s18_6.webp", "채용절차법", 834, 506, 66.404, 50.254, 32.95]], "lb": [["준법사항 리스트", 28.7, 13.35], ["근로기준법", 61.75, 14.28], ["전자상거래법", 28.7, 84.52], ["직업안정법", 61.79, 84.52], ["위치정보법", 95.54, 14.28], ["채용절차법", 95.57, 84.52]]}, "19": {"sx": [66.81], "sy": [48.45], "ar": 2.595, "it": [["g3/s19_1.webp", "정책 수립", 834, 506, 0.0, 0.486, 31.411], ["g3/s19_2.webp", "Front 화면기획", 834, 506, 31.093, 0.486, 31.411], ["g3/s19_3.webp", "ISMS-P 인증서", 1279, 1780, 72.289, 0.0, 27.711], ["g3/s19_4.webp", "약관 개정", 834, 506, 0.126, 50.496, 31.411], ["g3/s19_5.webp", "Admin 기획", 834, 506, 31.093, 50.496, 31.411]], "lb": [["정책 수립", 27.36, 13.77], ["Front 화면기획", 58.87, 14.7], ["약관 개정", 27.36, 84.6], ["Admin 기획", 58.9, 84.6]]}, "20": {"sx": [61.16], "sy": [48.43], "ar": 2.819, "it": [["g3/s20_1.webp", "가맹점 계약", 834, 523, 0.0, 0.0, 28.929], ["g3/s20_2.webp", "Front 화면기획", 834, 506, 28.264, 0.44, 28.929], ["g3/s20_3.webp", "결제수단 선택 화면", 1724, 1633, 65.613, 3.426, 34.387], ["g3/s20_4.webp", "정책 수립", 834, 506, 0.0, 50.391, 28.929], ["g3/s20_5.webp", "Admin 기획", 834, 506, 28.264, 50.473, 28.929]], "lb": [["가맹점 계약", 24.83, 13.73], ["Front 화면기획", 53.85, 14.66], ["정책 수립", 24.83, 84.59], ["Admin 기획", 53.87, 84.59]]}, "21": {"sx": [61.63], "sy": [48.2], "ar": 2.8269, "it": [["g3/s21_1.webp", "UI/UX 개선", 834, 506, 0.0, 0.0, 28.976], ["g3/s21_2.webp", "Front 화면기획", 834, 506, 28.682, 0.0, 28.976], ["g3/s21_3.webp", "브랜드 채용관 화면", 1735, 1593, 65.354, 5.376, 34.646], ["g3/s21_4.webp", "지표화 관리", 834, 506, 0.116, 50.254, 28.976], ["g3/s21_5.webp", "Admin 내재화", 834, 506, 28.682, 50.254, 28.976]], "lb": [["UI/UX 개선", 25.24, 13.35], ["Front 화면기획", 54.31, 14.28], ["지표화 관리", 25.24, 84.52], ["Admin 내재화", 54.33, 84.52]]}, "22": {"sx": [], "sy": [], "ar": 2.6976, "it": [["g3/s22_1.webp", "JIRA 업무진행리스트", 1450, 917, 0.0, 0.0, 49.865], ["g3/s22_2.webp", "JIRA 이슈 목록", 1480, 1078, 49.122, 0.0, 50.878]], "lb": []}, "24": {"sx": [61.2], "sy": [48.27], "ar": 2.8513, "it": [["g3/s24_1.webp", "일정 관리", 834, 506, 0.0, 0.0, 28.773], ["g3/s24_2.webp", "정책 수립", 834, 506, 28.481, 0.0, 28.773], ["g3/s24_3.webp", "타임커머스 상품 화면", 589, 1545, 64.438, 3.215, 11.675], ["g3/s24_4.webp", "타임커머스 상품 화면", 621, 1545, 76.138, 3.317, 12.517], ["g3/s24_5.webp", "타임커머스 상품 화면", 622, 1545, 87.475, 3.317, 12.525], ["g3/s24_6.webp", "전략 수립", 834, 504, 0.0, 50.333, 28.773], ["g3/s24_7.webp", "화면 기획", 834, 505, 28.481, 50.333, 28.773]], "lb": [["일정 관리", 25.06, 13.37], ["정책 수립", 53.93, 14.3], ["화면 기획", 53.95, 84.65], ["전략 수립", 25.06, 84.65]]}, "25": {"sx": [], "sy": [], "ar": 2.5331, "it": [["g3/s25_1.webp", "IR 제안서", 1330, 534, 0.0, 0.0, 48.159], ["g3/s25_2.webp", "B2B 사업제휴", 1328, 534, 51.931, 0.0, 48.069], ["g3/s25_3.webp", "G2B 사업제휴", 1328, 534, 0.09, 51.085, 48.069], ["g3/s25_4.webp", "협업툴 도입", 1328, 534, 51.877, 51.085, 48.069]], "lb": [["IR 제안서", 4.87, 31.81], ["B2B 사업제휴", 57.34, 32.07], ["G2B 사업제휴", 5.2, 86.05], ["협업툴 도입", 57.34, 86.56]]}, "26": {"sx": [64.22], "sy": [45.79], "ar": 3.5009, "it": [["g3/s26_1.webp", "온라인 프로모션", 541, 825, 0.515, 3.175, 17.683], ["g3/s26_2.webp", "온라인 프로모션 이벤트", 517, 825, 18.138, 3.175, 16.907], ["g3/s26_3.webp", "오프라인 프로모션", 778, 812, 35.881, 4.648, 25.445], ["g3/s26_4.webp", "프로모션 기간 앱 다운로드 추이", 1712, 1472, 67.843, 3.175, 32.157]], "lb": [["온라인 프로모션", 4.53, 4.32], ["오프라인 프로모션", 38.53, 4.32]]}, "28": {"sx": [53.76], "sy": [44.37], "ar": 2.8552, "it": [["g3/s28_1.webp", "로드맵 일정관리", 1404, 769, 0.0, 6.7, 49.346], ["g3/s28_2.webp", "리뉴얼 오픈 홍보물", 1061, 1734, 58.179, 0.0, 21.764], ["g3/s28_3.webp", "리뉴얼 오픈 홍보물", 1045, 1734, 78.631, 0.0, 21.369]], "lb": [["로드맵 일정관리", 44.71, 14.09]]}, "29": {"sx": [56.43], "sy": [25.88, 70.84], "ar": 2.8145, "it": [["g3/s29_1.webp", "스트리밍 기획", 692, 487, 0.0, 0.748, 24.921], ["g3/s29_2.webp", "채팅창 기획", 702, 487, 25.892, 0.748, 25.25], ["g3/s29_3.webp", "스트리밍 화면", 1282, 893, 62.611, 0.0, 26.523], ["g3/s29_4.webp", "스트리밍 화면", 495, 885, 89.775, 2.017, 10.225], ["g3/s29_5.webp", "VOD 기획", 690, 476, 0.151, 51.874, 24.811], ["g3/s29_6.webp", "방송채널 기획", 702, 476, 25.289, 51.874, 25.25], ["g3/s29_7.webp", "방송채널 화면", 1742, 827, 62.736, 51.874, 36.038]], "lb": [["스트리밍 기획", 21.89, 8.51], ["채팅창 기획", 47.21, 8.57], ["VOD 기획", 20.9, 61.27], ["방송채널 기획", 47.18, 61.27]]}, "30": {"sx": [49.04], "sy": [25.58, 67.75], "ar": 2.4013, "it": [["g3/s30_1.webp", "정보발송 기획", 1064, 519, 0.0, 0.74, 42.088], ["g3/s30_2.webp", "정보발송 어드민 화면", 1890, 917, 57.029, 0.0, 42.971], ["g3/s30_3.webp", "상품관리 기획", 1064, 447, 0.0, 53.1, 42.088], ["g3/s30_4.webp", "상품관리 어드민 화면", 1890, 859, 57.029, 53.1, 42.971]], "lb": [["정보발송 기획", 38.98, 11.96], ["상품관리 기획", 38.75, 64.27]]}, "31": {"sx": [], "sy": [], "ar": 3.2767, "it": [["g3/s31_1.webp", "애널리틱스 집행", 993, 863, 0.0, 1.553, 34.589], ["g3/s31_2.webp", "DB수집 분석", 744, 876, 36.767, 0.0, 25.886], ["g3/s31_3.webp", "프로모션 기획", 893, 876, 67.211, 0.0, 31.074]], "lb": [["애널리틱스 집행", 25.45, 32.77], ["DB수집 분석", 60.13, 26.71], ["프로모션 기획", 95.64, 18.6]]}};
 const gal = (n) => G[n];
 const P = [
  {id:'edu', hl:'재계약 100%', no:'01', c:'var(--edu)', title:'입시 솔루션 플랫폼', sub:'논숲 · PMS', co:'UPLUS SYSTEM', period:'2025.10 – 재직중',
@@ -1106,7 +1060,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const drawer=document.getElementById('drawer');
 const arrow='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
 
-const FILL=[];
+const FILL=['g3/s21_3.webp'];
 const DIM={'img/hero_nonsup.webp':[1600,695],'img/hero_pms.webp':[1600,695],'img/hero_dayfin.webp':[1400,1139],'img/hero_alba.webp':[1600,1249],'img/hero_hatam.webp':[1400,655],'img/hero_stock.webp':[1600,1059],'img/n1_explore.webp':[1039,764],'img/n2_write.webp':[1039,764],'img/n3_result.webp':[1039,764],'img/n4_report.webp':[1039,764],'img/dev_pc.webp':[1039,764],'img/dev_mo.webp':[419,923],'img/dev_tab.webp':[840,1115]};
 const dim=s=>{const d=DIM[s];return d?` width="${d[0]}" height="${d[1]}"`:''};
 function galHTML(g, title){
@@ -1167,7 +1121,7 @@ function dnavHTML(p){
   return `<div class="dnav"><button type="button" class="dn-close" data-act="close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>접기</button><button type="button" class="dn-next" data-act="next" data-next="${nx.id}" style="--nc:${nx.c}"><span><small>${i+1<P.length?'다음 프로젝트':'처음 프로젝트'}</small>${nx.no} · ${esc(nx.title)}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>`;
 }
 function tabHTML(p,open){
-  return `<button class="tab" type="button" id="t-${p.id}" style="--c:${p.c}" aria-expanded="${open}"${open?` aria-controls="d-${p.id}"`:''} data-id="${p.id}">
+  return `<button class="tab" type="button" id="t-${p.id}" style="--c:${p.c}" aria-expanded="${open}" aria-controls="d-${p.id}" data-id="${p.id}">
     <span class="no">${p.no}</span><span class="tt"><span class="tt-h">${esc(p.title)}</span><small>${esc(p.sub)}</small></span>
     <span class="meta"><b>${esc(p.co)}</b>${esc(p.period)}</span><span class="go">${arrow}</span></button>`;
 }
@@ -1214,8 +1168,7 @@ watch(document);
 render(ids.includes(h)?h:'edu', ids.includes(h));
 addEventListener('hashchange',()=>{const k=(location.hash||'').slice(1); if(ids.includes(k)&&k!==current) render(k,true);});
 
-const live=document.getElementById('live');
-function toast(msg){const t=document.createElement('div');t.className='toast';t.setAttribute('aria-hidden','true');t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1800); if(live){live.textContent=''; setTimeout(()=>{live.textContent=msg;},40);}}
+function toast(msg){const t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1800);}
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-copy]'); if(!b) return;
   const el=document.getElementById(b.dataset.copy); const txt=el.textContent.trim();
@@ -1256,7 +1209,7 @@ if(!reduce && 'IntersectionObserver' in window){
   const cv=document.getElementById('net'); const ctx=cv.getContext('2d'); if(!ctx) return;
   let W,H,nodes=[],raf=null,visible=true;
   function size(){const dpr=Math.min(2,devicePixelRatio||1); const r=cv.getBoundingClientRect(); W=r.width;H=r.height; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-    const n=Math.round(Math.min(48,Math.max(24,W*H/20000))); nodes=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.4+.7}));}
+    const n=Math.round(Math.min(64,Math.max(24,W*H/18000))); nodes=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.4+.7}));}
   function frame(){
     ctx.clearRect(0,0,W,H);
     for(const p of nodes){ if(!reduce){p.x+=p.vx;p.y+=p.vy;} if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1; }

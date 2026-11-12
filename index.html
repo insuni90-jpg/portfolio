@@ -97,7 +97,7 @@ svg.i{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke
 .gnb-links a.l.on{color:var(--brand-ink)}
 .gnb-links a.l svg{width:12px;height:12px;transition:transform var(--base) var(--ease)}
 .gnb-links a.l[aria-expanded="true"] svg{transform:rotate(180deg)}
-.menu{position:absolute;right:0;top:calc(100% + 10px);width:min(640px,calc(100vw - 32px));display:grid;grid-template-columns:minmax(0,1fr) 208px;gap:var(--s2);padding:var(--s2);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--raised);box-shadow:var(--shadow-pop);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity var(--base) var(--ease),transform var(--base) var(--ease)}
+.menu{position:absolute;right:0;top:calc(100% + 10px);width:min(440px,calc(100vw - 32px));display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s2);padding:var(--s2);border:1px solid var(--line);border-radius:var(--r-lg);background:var(--raised);box-shadow:var(--shadow-pop);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity var(--base) var(--ease),transform var(--base) var(--ease)}
 .menu.open{opacity:1;transform:none;pointer-events:auto}
 .menu ol{display:grid}
 .menu a{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:var(--s3);padding:10px 12px;border-radius:var(--r-md);text-decoration:none;transition:background var(--fast)}
@@ -1236,7 +1236,7 @@ h1.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
       <li class="opt"><a class="l" href="#about">About</a></li>
       <li class="opt"><a class="l" href="#skills">Capability</a></li>
       <li class="has-menu" id="pj-li"><a class="l" href="#projects" id="pj-link" aria-haspopup="true" aria-expanded="false" aria-controls="pj-menu">Projects<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
-        <div class="menu" id="pj-menu"><ol id="pj-list"></ol><div class="peek" id="pj-peek"><img alt="" id="pj-peek-img"><img alt="" id="pj-peek-img2" hidden></div></div>
+        <div class="menu" id="pj-menu"><ol id="pj-list"></ol></div>
       </li>
       <li><a class="l" href="#contact">Contact</a></li>
     </ul>
@@ -1750,7 +1750,7 @@ document.addEventListener('click',e=>{
 const pjLink=document.getElementById('pj-link'), pjMenu=document.getElementById('pj-menu'), pjLi=document.getElementById('pj-li');
 const peekImg=document.getElementById('pj-peek-img'), peekImg2=document.getElementById('pj-peek-img2'), peekBox=document.getElementById('pj-peek');
 let openT=null, closeT=null;
-function peek(id){const p=byId[id]; if(!p) return; peekImg.src=p.vis[0][0]; const duo=p.vis.length>1; peekBox.classList.toggle('duo',duo); peekImg2.hidden=!duo; if(duo) peekImg2.src=p.vis[1][0]; pjMenu.querySelectorAll('a').forEach(a=>a.classList.toggle('is-on',a.dataset.id===id));}
+function peek(id){const p=byId[id]; if(!p) return; if(peekImg){ peekImg.src=p.vis[0][0]; const duo=p.vis.length>1; peekBox.classList.toggle('duo',duo); peekImg2.hidden=!duo; if(duo) peekImg2.src=p.vis[1][0]; } pjMenu.querySelectorAll('a').forEach(a=>a.classList.toggle('is-on',a.dataset.id===id));}
 function openMenu(){clearTimeout(closeT); pjMenu.classList.add('open'); pjLink.setAttribute('aria-expanded','true'); peek(cur||pjMenu.querySelector('a.is-on')?.dataset.id||ids[0]);}
 function closeMenu(){clearTimeout(openT); pjMenu.classList.remove('open'); pjLink.setAttribute('aria-expanded','false');}
 pjLi.addEventListener('pointerenter',e=>{if(e.pointerType==='touch')return; clearTimeout(closeT); openT=setTimeout(openMenu,80);});
